@@ -6,7 +6,7 @@ from progress.bar import Bar
 
 INPUT_DIR = '/home/hammi/Desktop/images/converted/'
 
-WIDTH, HEIGHT = 800, 800
+WIDTH, HEIGHT = 500, 500
 
 OUTPUT_DIR = f'/home/hammi/Desktop/images/{WIDTH}x{HEIGHT}/'
 
@@ -27,5 +27,9 @@ for sample in samples:
 
     for exposure in exposures:
         img = Image.read(os.path.join(INPUT_DIR, sample, exposure))
-        img = Image.resize(img, WIDTH, HEIGHT)
-        cv2.imwrite(os.path.join(OUTPUT_DIR, sample, exposure), img)
+        try:
+            img = Image.resize(img, WIDTH, HEIGHT)
+            cv2.imwrite(os.path.join(OUTPUT_DIR, sample, exposure), img)
+        except Exception as e:
+            pass
+            # print(exposure)
