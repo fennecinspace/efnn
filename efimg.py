@@ -95,7 +95,7 @@ class Exposures:
         return [ pixel_set, list(self.ef[i][j]) ]
 
 
-    def create_ef(self, align = False):
+    def create_ef(self, check_exist = False, align = False):
         Log.info(f'{self.dir} Creating Fusion')
         exposures = [*self.exposures.values()]
         if align:
