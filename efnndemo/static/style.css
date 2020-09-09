@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    font-size: 16px;
+
+    padding-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 50px;
+}
+
+h4 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+input, button {
+    cursor: pointer;
+}
+
+
+#efnnsvg {
+    width: 1200px;
+    margin: 100px auto;
+    display: block;
+}
+
+p {
+    text-align: center;
+}
+
+#download_buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 100px;
+    justify-items: center;
+    max-width: max-content;
+    margin: 100px auto;
+}
+
+#download_buttons > a {
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-gap: 30px;
+    align-items: center;
+
+}
+
+#download_buttons a, #download_buttons a:visited {
+    color:#212529;
+    text-decoration: none;
+}
+
+#download_buttons img {
+    width: 70px;
+}
+
+.samplechooser_container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.samplechooser_elem {
+    display: grid;
+    grid-template-columns: max-content auto;   
+    grid-gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
+    user-select: none;
+}
+
+.samplechooser_elem div {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.samplechooser_elem img {
+    object-fit: cover;
+    width: 100%;
+    user-select: none;
+}
+
+button {
+    padding: 8px 50px;
+    font-weight: 800;
+    font-size: 18px;
+    background: #212529;
+    color: #fff;
+    border-radius: 12px;
+    outline: none;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2e2e2e;
+    transition: 0.3s;
+}
