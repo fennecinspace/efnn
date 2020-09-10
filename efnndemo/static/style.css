@@ -5,12 +5,15 @@
 html, body {
     margin: 0;
     font-size: 16px;
-
-    padding-bottom: 20px;
+    padding: 20px;
 }
 
 p {
     font-size: 18px;
+}
+
+body > h1:first-child {
+    margin-top: 20px;
 }
 
 h1, h2 {
@@ -27,6 +30,10 @@ input, button {
     cursor: pointer;
 }
 
+#efnn_img_container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
 
 #efnnsvg {
     width: 1200px;
@@ -64,7 +71,7 @@ p {
     width: 70px;
 }
 
-.samplechooser_container {
+.samplechooser_container, #results  {
     margin: 0 auto;
     max-width: 1000px;
 }
@@ -76,6 +83,7 @@ p {
     align-items: center;
     margin-bottom: 30px;
     user-select: none;
+    cursor: pointer;
 }
 
 .samplechooser_elem div {
@@ -85,7 +93,7 @@ p {
 }
 
 
-.samplechooser_elem img, #input img, #output img {
+.samplechooser_elem img, #input img, #output img, #efnnsvg {
     object-fit: cover;
     width: 100%;
     user-select: none;
@@ -110,12 +118,6 @@ button:hover {
     transition: 0.3s;
 }
 
-
-#results {
-    margin: 0 auto;
-    max-width: 1000px;
-}
-
 #results h4 {
     margin: 5px;
 }
@@ -131,4 +133,51 @@ button:hover {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
+}
+
+#upload_container {
+    display: grid;
+    grid-template-columns: auto max-content;
+    grid-gap: 20px;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#upload_container > div {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 20px;
+}
+
+#upload_container > button {
+    width: max-content;
+    height: max-content;
+}
+
+.loading_overlay {
+    display: none;
+    align-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: progress;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(255, 255, 255, 0.212); */
+}
+
+.loading_overlay > div {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    border-radius: 15px;
+    height: 100px;
+}
+
+.loading_overlay img {
+    width: 100px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #212529;
 }

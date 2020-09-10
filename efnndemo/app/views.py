@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from app.efimg import Exposures
+from django.core.files.storage import FileSystemStorage
 
-import time
-
-import os
+import os, time, json
 from PIL import Image
+
+from uuid import uuid4
 
 # Create your views here.
 
@@ -46,3 +47,23 @@ def Run(req, sample_name, *args, **kwargs):
     # return render(req, template_name = 'index.html')
 
     return render(req, template_name = 'results_page.html')
+
+
+def Upload(req, *args, **kwargs):
+    sample_name = str(uuid4())
+    sample_folder = f'./media/{sample_name}'
+
+    try: os.mkdir(sample_folder)
+    except: pass
+
+    under = req.FILES['under']
+    normal = req.FILES['normal']
+    over = req.FILES['over']
+
+    fs = FileSystemStorage(location = sample_folder)
+
+    fs.save('under.' + under.name.split('.')[-1], under)
+    fs.save('normal.' + normal.name.split('.')[-1], normal)
+    fs.save('over.' + over.name.split('.')[-1], over)
+
+    return JsonResponse({'sample_name': sample_name}, safe = False)

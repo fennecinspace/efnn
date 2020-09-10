@@ -1,5 +1,5 @@
-
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
     <h2>Test it now :</h2>
@@ -49,5 +49,26 @@
 
         <button onclick="run(this, event);">Run</button>
 
+        <h3>Or Upload your own (Exposures must have the same exact resolution/shape):</h3>
+
+        <form id="upload_container" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <label>Under Exposure</label>
+                <input id="under_upload" type="file" accept="image/*" />
+                <label>Normal Exposure</label>
+                <input id="normal_upload" type="file" accept="image/*" />
+                <label>Over Exposure</label>
+                <input id="over_upload" type="file" accept="image/*" />
+            </div>
+            
+            <button onclick="upload(this, event);">Upload & Run</button>
+        </form>
+
+        <div class = "loading_overlay">
+            <div>
+                <img src="{% static 'images/loading.svg' %}">
+            </div>
+        </div>
     </div>
 {% endblock %}
