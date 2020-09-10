@@ -49,7 +49,7 @@ p {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 100px;
-    justify-items: center;
+    /* justify-items: center; */
     max-width: max-content;
     margin: 100px auto;
 }
@@ -59,7 +59,6 @@ p {
     grid-template-columns: max-content auto;
     grid-gap: 30px;
     align-items: center;
-
 }
 
 #download_buttons a, #download_buttons a:visited {
@@ -141,6 +140,7 @@ button:hover {
     grid-gap: 20px;
     align-items: center;
     padding-top: 20px;
+    margin-bottom: 100px;
 }
 
 #upload_container > div {
@@ -180,4 +180,8 @@ button:hover {
     border-radius: 10px;
     padding: 20px;
     border: 1px solid #212529;
+}
+
+#upload_title {
+    margin-top: 100px;
 }
