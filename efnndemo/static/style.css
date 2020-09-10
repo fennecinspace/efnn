@@ -85,7 +85,7 @@ p {
 }
 
 
-.samplechooser_elem img {
+.samplechooser_elem img, #input img, #output img {
     object-fit: cover;
     width: 100%;
     user-select: none;
@@ -108,4 +108,27 @@ button {
 button:hover {
     background: #2e2e2e;
     transition: 0.3s;
+}
+
+
+#results {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+#results h4 {
+    margin: 5px;
+}
+
+#input {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 50px;
+}
+
+#output {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
 }

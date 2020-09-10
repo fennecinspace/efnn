@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if SAMPLE_NAME %}
+    <h2>Results :</h2>
+
+    <div id="results">
+
+        <h3>Input :</h3>
+
+        <div id="input">
+            <div>
+                <h4>Under Exposed</h4>
+                <img src="/media/{{SAMPLE_NAME}}/under.jpg">
+            </div>
+            <div>
+                <h4>Normal Exposure</h4>
+                <img src="/media/{{SAMPLE_NAME}}/normal.jpg">
+            </div>
+            <div>
+                <h4>Over Exposed</h4>
+                <img src="/media/{{SAMPLE_NAME}}/over.jpg">
+            </div>
+    
+        </div>
+
+        <h3>Output :</h3>
+
+        <div id="output">
+            <div>
+                <h4>EFNN ({{ EFNN_TIME }} ms)</h4>
+                <img src="/media/{{SAMPLE_NAME}}/ef_prediction.jpg">
+            </div>
+    
+            <div>
+                <h4>Mertens EF ({{ EF_TIME }} ms)</h4>
+                <img src="/media/{{SAMPLE_NAME}}/ef.jpg">
+            </div>
+        </div>
+    
+    </div>
+
+
+
+{% else %}
+<h2>Invalid Sample</h2>
+{% endif %}
+{% endblock %}

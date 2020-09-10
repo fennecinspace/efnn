@@ -1,9 +1,11 @@
 function run(button, event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log(
-        [...document.querySelectorAll('input[type="radio"]')].find(c => c.checked).value
-    );
+
+    let sample_name = [...document.querySelectorAll('input[type="radio"]')].find(c => c.checked).value;
+
+    document.location = '/run/' + sample_name + '#results';
+
 }
 
 function selectSample(sample, event) {

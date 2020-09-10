@@ -1,34 +1,7 @@
-<!DOCTYPE html>
 
-{% load staticfiles %}
+{% extends 'base.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <script type="text/javascript" src="{% static 'main.js' %}"></script>
-    <title>Document</title>
-</head>
-<body>
-    <h1>EXPOSURE FUSION NEURAL NETWORK</h1>
-
-    <img id="efnnsvg" src="{% static 'images/efnn.svg' %}">
-
-    <p>EFNN was created in order to enhance image quality in order to achieve close to real time computer vision in extreme lighting conditions.</p>
-    <p>This new HDR Machine Learning based solution attempts to create HDR images in higher speeds than traditional methods.</p>
-
-    <div id="download_buttons">
-        <a href="#">
-            <img src="{% static 'images/book.svg' %}">
-            <h3>Download the Memoire (PDF)</h3>
-        </a>
-        <a href="https://github.com/logxseven/efnn" target="_blank">
-            <img src="{% static 'images/github.svg' %}">
-            <h3>Get the code on GITHUB</h3>
-        </a>
-    </div>
-
+{% block content %}
     <h2>Test it now :</h2>
 
     <div class="samplechooser_container">
@@ -37,46 +10,44 @@
         <h4>Samples from the test dataset</h4>
 
         <div class="samplechooser_elem" onclick="selectSample(this, event);">
-            <input type="radio" id="samplechooser1" name="samplechooser" value="1" checked>
+            <input type="radio" id="samplechooser1" name="samplechooser" value="HDRMark" checked>
             <div>
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-underexposed.jpg">
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-normal-exposure.jpg">
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-overexposed.jpg">
+                <img src="/media/HDRMark/under.jpg">
+                <img src="/media/HDRMark/normal.jpg">
+                <img src="/media/HDRMark/over.jpg">
             </div>
         </div>
 
         <div class="samplechooser_elem" onclick="selectSample(this, event);">
-            <input type="radio" id="samplechooser1" name="samplechooser" value="2">
+            <input type="radio" id="samplechooser1" name="samplechooser" value="AirBellowsGap">
             <div>
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-underexposed.jpg">
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-normal-exposure.jpg">
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-overexposed.jpg">
+                <img src="/media/AirBellowsGap/under.jpg">
+                <img src="/media/AirBellowsGap/normal.jpg">
+                <img src="/media/AirBellowsGap/over.jpg">
             </div>
         </div>
 
         <h4>New never before seen samples (Model Generalization Testing)</h4>
 
         <div class="samplechooser_elem" onclick="selectSample(this, event);">
-            <input type="radio" id="samplechooser1" name="samplechooser" value="3">
+            <input type="radio" id="samplechooser1" name="samplechooser" value="SAMPLE001">
             <div>
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-underexposed.jpg">
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-normal-exposure.jpg">
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-overexposed.jpg">
+                <img src="/media/SAMPLE001/under.jpg">
+                <img src="/media/SAMPLE001/normal.jpg">
+                <img src="/media/SAMPLE001/over.jpg">
             </div>
         </div>
 
         <div class="samplechooser_elem" onclick="selectSample(this, event);">
-            <input type="radio" id="samplechooser1" name="samplechooser" value="4">
+            <input type="radio" id="samplechooser1" name="samplechooser" value="OSTROW">
             <div>
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-underexposed.jpg">
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-normal-exposure.jpg">
-                <img src="https://images.hdrsoft.com/images/lighthouse/thumbs/photo-overexposed.jpg">
+                <img src="/media/OSTROW/under.jpg">
+                <img src="/media/OSTROW/normal.jpg">
+                <img src="/media/OSTROW/over.jpg">
             </div>
         </div>
 
         <button onclick="run(this, event);">Run</button>
 
     </div>
-
-</body>
-</html>
+{% endblock %}
