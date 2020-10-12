@@ -51,21 +51,13 @@ class Image():
 
 
 class Exposures:
-    def __init__(self, 
-            path, 
-            ext = 'jpg', 
-            colorspace = 'bgr', 
-            evs = None, 
-            exposures = [],
-            ef_file_name = 'ef.jpg', 
-            prediction_file_name = 'ef_prediction.jpg', 
-            model = None
-        ):
-        
+    def __init__(self, path, ext = 'jpg', colorspace = 'bgr', evs = None, ef_file_name = 'ef.jpg', prediction_file_name = 'ef_prediction.jpg', model = None):
         if os.path.exists(path):
             self.colorspace = colorspace
             self.dir = path
             self.sample_name = os.path.basename(self.dir)
+            self.evs = evs or ['over', 'normal', 'under']
+            self.exposures = {}
             self.ef = None
             self.ef_prediction = None 
             self.np_data = {
@@ -75,12 +67,6 @@ class Exposures:
             self.ef_file_name = ef_file_name
             self.prediction_file_name = prediction_file_name
             self.model = model
-
-            if exposures:
-                self.evs = [ev.split('.')[0] for ev in exposures]
-            else:
-                self.exposures = {}
-                self.evs = evs or ['over', 'normal', 'under']
 
             for ev in self.evs:
                 self.exposures.update({
@@ -93,8 +79,7 @@ class Exposures:
                 else:
                     raise Exception(f'Could not find {ev} exposure at {path}')
 
-
-            self.size = self.exposures[self.evs[0]].shape
+            self.size = self.exposures[evs[0]].shape
 
 
             if os.path.exists(os.path.join(self.dir, self.ef_file_name)):
@@ -204,6 +189,19 @@ class Exposures:
             else:
                 self.np_data['labels'] = self.ef
 
+        # x = len(self.ef)
+        # y = len(self.ef[0])
+        # print( 
+        #     '',
+        #     self.pixel(3,1),
+        #     '\n',
+        #     [
+        #         list(self.np_data['data'][y * 3 + 1]), 
+        #         list(self.np_data['labels'][y * 3 + 1])
+        #     ] 
+        # )
+        # assert list(self.np_data['data'][y]) == self.pixel(1,0)[0]
+
 
     def save_np_data(self, exposures_name = 'data', ef_name = 'labels'):
         if self.np_data['data'] is None or self.np_data['labels'] is None:
@@ -225,3 +223,4 @@ class Exposures:
 
         self.np_data['data'] = np.load( e_save )
         self.np_data['labels'] = np.load( ef_save )
+

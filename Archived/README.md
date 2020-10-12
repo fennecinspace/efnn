@@ -1,6 +1,6 @@
 # EFNN
 
-This is the code repository that includes the main scripts and notebooks for my Master 2 Graduation Project.
+This is the code repository that includes the main scripts and notebooks for my Master's Graduation Project.
 
 
 ## efnndemo
