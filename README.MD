@@ -1,5 +1,5 @@
-1 - acquire_dataset.sh
-2 - extract_allimages_evs.sh
-2 - evs_to_rgb_dataset.py
-3 - train_model.py
-4 - test_model.py
+- acquire_dataset.sh
+- extract_allimages_evs.sh
+- evs_to_rgb_dataset.py
+- train_model.py
+- test_model.py

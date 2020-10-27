@@ -57,6 +57,7 @@ class Exposures:
             colorspace = 'bgr', 
             evs = None, 
             exposures = [],
+            exposures_files = [],
             ef_file_name = 'ef.jpg', 
             prediction_file_name = 'ef_prediction.jpg', 
             model = None
@@ -80,18 +81,21 @@ class Exposures:
                 self.evs = [ev.split('.')[0] for ev in exposures]
             else:
                 self.exposures = {}
-                self.evs = evs or ['over', 'normal', 'under']
+                self.evs = evs or ['under', 'normal', 'over',]
 
-            for ev in self.evs:
-                self.exposures.update({
-                    ev: f'{path}/{ev}.{ext}',
-                })
+            if exposures_files:
+                self.exposures = exposures_files
+            else:
+                for ev in self.evs:
+                    self.exposures.update({
+                        ev: f'{path}/{ev}.{ext}',
+                    })
 
-            for ev, path in self.exposures.items():
-                if os.path.exists(path):
-                    self.exposures[ev] = Image.read(path, colorspace)
-                else:
-                    raise Exception(f'Could not find {ev} exposure at {path}')
+                for ev, path in self.exposures.items():
+                    if os.path.exists(path):
+                        self.exposures[ev] = Image.read(path, colorspace)
+                    else:
+                        raise Exception(f'Could not find {ev} exposure at {path}')
 
 
             self.size = self.exposures[self.evs[0]].shape
@@ -139,6 +143,7 @@ class Exposures:
     
     def predict_ef(self):
         Log.info(f'{self.dir} Creating Fusion')
+        print("Loading: ", self.model)
         model = tf.keras.models.load_model(self.model)
 
         t1 = time.time()

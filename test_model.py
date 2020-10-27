@@ -26,12 +26,17 @@ SAMPLE = 'sample'
 # SAMPLE = 'WallDrug'
 # EVS = ['-8', '-3', '+0']
 
+# reading sample
 x = Exposures(
         os.path.join(SAMPLES_DIR, SAMPLE), 
         # evs = [f'{SAMPLE}-EV{ev}' for ev in EVS],
         model = MODEL_TO_USE
     )
 
+# using mertens
 x.create_ef()
 
+# using efnn
 x.predict_ef()
+
+# result is saved to sample folder
