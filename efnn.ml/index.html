@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./static/main.js"></script>
+    <title>EFNN</title>
+</head>
+<body>
+    <h1>EXPOSURE FUSION NEURAL NETWORK</h1>
+
+    <div id="efnn_img_container">
+        <img id="efnnsvg" src="./static/images/efnn.svg">
+    </div>
+
+    <p>EFNN is a new dynamic range increase solution that aimes to enhance image quality in order to achieve close to real time computer vision in extreme lighting conditions.</p>
+    <p>This new HDR ML based solution attempts to create HDR images in higher speeds than traditional methods.</p>
+
+    <div id="download_buttons">
+        <a href="./media/memoire.pdf" target="_blank">
+            <img src="./static/images/book.svg">
+            <h3>Get the Memoire (PDF)</h3>
+        </a>
+        <a href="https://github.com/logxseven/efnn" target="_blank">
+            <img src="./static/images/github.svg">
+            <h3>Get the code & model on GITHUB</h3>
+        </a>
+        <a href="https://colab.research.google.com/drive/1RYknwO3obGl4RoXWE6d0TrVjqdJv6sN6?usp=sharing" target="_blank">
+            <img src="./static/images/image.svg">
+            <h3>Test it now on colab</h3>
+        </a> 
+
+        <a href="mailto:mohamedbenkedadra@gmail.com,elamine.moumene@gmail.com" target="_blank">
+            <img src="./static/images/email.svg">
+            <h3>Email the authors</h3>
+        </a> 
+    </div>
+
+    <h2 style="text-align: left; margin: 0 auto; max-width: 1000px;">Results :</h2>
+
+
+    <div class="sample_title" style="padding-top:20px;">HDRMark (4286x2848)</div>
+
+
+    <div class="results">
+
+        <h3>Input :</h3>
+
+        <div id="input">
+            <div>
+                <h4>Under Exposed</h4>
+                <img src="./media/HDRMark/under.jpg">
+            </div>
+            <div>
+                <h4>Normal Exposure</h4>
+                <img src="./media/HDRMark/normal.jpg">
+            </div>
+            <div>
+                <h4>Over Exposed</h4>
+                <img src="./media/HDRMark/over.jpg">
+            </div>
+    
+        </div>
+
+        <h3>Output :</h3>
+
+        <div id="output">
+            <div>
+                <h4>EFNN</h4>
+                <img src="./media/HDRMark/ef_prediction.jpg">
+            </div>
+    
+            <div>
+                <h4>Mertens EF</h4>
+                <img src="./media/HDRMark/ef.jpg">
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="sample_title">AirBellowsGap (4286x2411)</div>
+
+
+    <div class="results">
+
+        <h3>Input :</h3>
+
+        <div id="input">
+            <div>
+                <h4>Under Exposed</h4>
+                <img src="./media/AirBellowsGap/under.jpg">
+            </div>
+            <div>
+                <h4>Normal Exposure</h4>
+                <img src="./media/AirBellowsGap/normal.jpg">
+            </div>
+            <div>
+                <h4>Over Exposed</h4>
+                <img src="./media/AirBellowsGap/over.jpg">
+            </div>
+    
+        </div>
+
+        <h3>Output :</h3>
+
+        <div id="output">
+            <div>
+                <h4>EFNN</h4>
+                <img src="./media/AirBellowsGap/ef_prediction.jpg">
+            </div>
+    
+            <div>
+                <h4>Mertens EF</h4>
+                <img src="./media/AirBellowsGap/ef.jpg">
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="sample_title">OSTROW (870x580)</div>
+
+    <div class="results">
+
+        <h3>Input :</h3>
+
+        <div id="input">
+            <div>
+                <h4>Under Exposed</h4>
+                <img src="./media/OSTROW/under.jpg">
+            </div>
+            <div>
+                <h4>Normal Exposure</h4>
+                <img src="./media/OSTROW/normal.jpg">
+            </div>
+            <div>
+                <h4>Over Exposed</h4>
+                <img src="./media/OSTROW/over.jpg">
+            </div>
+    
+        </div>
+
+        <h3>Output :</h3>
+
+        <div id="output">
+            <div>
+                <h4>EFNN</h4>
+                <img src="./media/OSTROW/ef_prediction.jpg">
+            </div>
+    
+            <div>
+                <h4>Mertens EF</h4>
+                <img src="./media/OSTROW/ef.jpg">
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="sample_title">SAMPLE001 (1000x750)</div>
+
+
+    <div class="results">
+
+        <h3>Input :</h3>
+
+        <div id="input">
+            <div>
+                <h4>Under Exposed</h4>
+                <img src="./media/SAMPLE001/under.jpg">
+            </div>
+            <div>
+                <h4>Normal Exposure</h4>
+                <img src="./media/SAMPLE001/normal.jpg">
+            </div>
+            <div>
+                <h4>Over Exposed</h4>
+                <img src="./media/SAMPLE001/over.jpg">
+            </div>
+    
+        </div>
+
+        <h3>Output :</h3>
+
+        <div id="output">
+            <div>
+                <h4>EFNN</h4>
+                <img src="./media/SAMPLE001/ef_prediction.jpg">
+            </div>
+    
+            <div>
+                <h4>Mertens EF</h4>
+                <img src="./media/SAMPLE001/ef.jpg">
+            </div>
+        </div>
+    
+    </div>
+
+</body>
+</html>
