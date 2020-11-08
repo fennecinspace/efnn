@@ -1,4 +1,4 @@
-MORE INFO ON : https://effn.ml
+MORE INFO ON : https://efnn.ml
 
 Run the code :
 - acquire_dataset.sh
