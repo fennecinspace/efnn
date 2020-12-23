@@ -214,9 +214,7 @@ button:hover {
 
 
 @media only screen and (max-width: 1000px) {
-    body {
-        #download_buttons {
-            grid-template-columns: 1fr;
-        }       
-    }
+    #download_buttons {
+        grid-template-columns: 1fr;
+    }       
 }
