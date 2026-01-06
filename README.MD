@@ -1,1 +1,1 @@
-MORE INFO ON : https://efnn.ml
+MORE INFO ON : https://efnn.netlify.app
